@@ -1,0 +1,87 @@
+// ============================================================
+//  Scene: "Three Spheres on a Floor"
+//  A classic raytracing showcase — three spheres with
+//  different materials: matte red, shiny gold, and deep blue.
+//  Two light sources: warm sun (top-right) and cool fill (left).
+// ============================================================
+
+// --- Ambient light (R G B, integers 0-255) ---
+60 60 70
+
+// --- Number of light sources ---
+3
+
+// --- Light 1: warm sunlight, top-right (x y z  R G B) ---
+6 4 8   255 240 200
+
+// --- Light 2: cool fill light, top-left ---
+-6 4 8   200 220 255
+
+// --- Light 3
+0 -5 6   180 180 180
+
+// ── Primitives ──────────────────────────────────────────────────────
+// Format: keyword, each vertex on its own line, then material on one line:
+//   Kdr Kdg Kdb  Ksr Ksg Ksb  Power
+// Winding: CCW when viewed from front (normal points toward camera)
+
+// Reflective grey floor (normal flipped: now pointing +Z toward camera)
+QUADRANGLE
+-8.0 -8.0 -2.5
+ 8.0 -8.0 -2.5
+ 8.0  8.0 -2.5
+-8.0  8.0 -2.5
+0.35 0.35 0.35   0.85 0.85 0.85   64
+
+// Back wall Y=+8 (blue wall, normal flipped: now pointing -Y toward camera)
+QUADRANGLE
+-8.0  8.0 -2.5
+ 8.0  8.0 -2.5
+ 8.0  8.0  7.0
+-8.0  8.0  7.0
+0.25 0.25 0.45   0.70 0.70 0.80   32
+
+// Left wall X=-8 (normal +X, camera at X=-14)
+QUADRANGLE
+-8.0 -8.0 -2.5
+-8.0  8.0 -2.5
+-8.0  8.0  7.0
+-8.0 -8.0  7.0
+0.45 0.20 0.20   0.80 0.60 0.60   32
+
+// Red sphere (centre)
+SPHERE
+0.0 0.0 0.0
+1.5
+0.80 0.15 0.15   0.90 0.90 0.90   64
+
+// Blue sphere (right)
+SPHERE
+3.5 1.0 0.0
+1.2
+0.15 0.25 0.85   0.85 0.85 0.95   48
+
+// Green sphere (left-back)
+SPHERE
+-2.5 2.5 0.5
+1.0
+0.15 0.75 0.20   0.70 0.90 0.70   32
+
+// Metallic box
+BOX
+ 1.5 -3.5 -2.5
+ 3.5 -1.5  0.5
+0.60 0.55 0.50   0.85 0.85 0.85   128
+
+// Small white sphere on box
+SPHERE
+2.5 -2.5 1.0
+0.5
+0.90 0.90 0.90   0.95 0.95 0.95   128
+
+// Yellow triangle (normal -Y, faces camera)
+TRIANGLE
+-1.0 -3.5  4.5
+ 1.0 -3.5  4.5
+ 0.0 -3.5  2.5
+0.90 0.80 0.10   0.80 0.80 0.30   16

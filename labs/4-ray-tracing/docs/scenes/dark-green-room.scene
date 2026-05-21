@@ -1,0 +1,113 @@
+// ============================================================
+//  Scene: "Dark Green Chamber – Mirror Edition"
+//  Same composition as before, but every surface is now
+//  highly specular (mirror-like). The room turns into a
+//  dark green hall of reflections, with the bright yellow
+//  sphere creating sharp mirrored highlights everywhere.
+// ============================================================
+
+// --- Ambient light (very low, dark green tint) ---
+10 15 10
+
+// --- Number of light sources ---
+3
+
+// --- Light 1: warm key light, top right ---
+5 5 6   255 240 200
+
+// --- Light 2: cool fill light, left ---
+-5 3 4   200 220 255
+
+// --- Light 3: bottom accent, slightly warm ---
+0 -4 0   220 220 180
+
+// ── Room structure ──────────────────────────────────────────────────
+// Black mirror floor (normal +Z)
+QUADRANGLE
+-8.0 -8.0 -2.5
+ 8.0 -8.0 -2.5
+ 8.0  8.0 -2.5
+-8.0  8.0 -2.5
+0.02 0.02 0.02   0.95 0.95 0.95   128
+
+// Back wall (dark green, mirror-like)
+QUADRANGLE
+-8.0  8.0 -2.5
+ 8.0  8.0 -2.5
+ 8.0  8.0  7.0
+-8.0  8.0  7.0
+0.03 0.08 0.03   0.90 0.90 0.90   128
+
+// Left wall (dark green, mirror-like)
+QUADRANGLE
+-8.0 -8.0 -2.5
+-8.0  8.0 -2.5
+-8.0  8.0  7.0
+-8.0 -8.0  7.0
+0.03 0.08 0.03   0.90 0.90 0.90   128
+
+// Right wall (dark green, mirror-like)
+QUADRANGLE
+ 8.0  8.0 -2.5
+ 8.0 -8.0 -2.5
+ 8.0 -8.0  7.0
+ 8.0  8.0  7.0
+0.03 0.08 0.03   0.90 0.90 0.90   128
+
+// Ceiling (dark green, mirror-like)
+QUADRANGLE
+-8.0  8.0  7.0
+ 8.0  8.0  7.0
+ 8.0 -8.0  7.0
+-8.0 -8.0  7.0
+0.03 0.08 0.03   0.90 0.90 0.90   128
+
+// ── Composition ─────────────────────────────────────────────────────
+// Black pedestal (mirror finish)
+BOX
+-1.0 -1.0 -2.5
+ 1.0  1.0 -1.2
+0.02 0.02 0.02   0.95 0.95 0.95   128
+
+// Bright yellow sphere (ultra-shiny mirror)
+SPHERE
+0.0 0.0 0.0
+1.5
+0.90 0.90 0.10   0.95 0.95 0.95   256
+
+// Left dark green column (mirror)
+BOX
+-5.0 -0.5 -2.5
+-3.0  0.5  2.0
+0.04 0.12 0.04   0.90 0.90 0.90   128
+
+// Right dark green column (mirror)
+BOX
+ 3.0 -0.5 -2.5
+ 5.0  0.5  2.0
+0.04 0.12 0.04   0.90 0.90 0.90   128
+
+// Small yellow sphere on left column (mirror)
+SPHERE
+-4.0 0.0 2.5
+0.5
+0.90 0.90 0.10   0.95 0.95 0.95   128
+
+// Small yellow sphere on right column (mirror)
+SPHERE
+ 4.0 0.0 2.5
+0.5
+0.90 0.90 0.10   0.95 0.95 0.95   128
+
+// Dark green sphere (mirror accent)
+SPHERE
+0.0 5.0 1.0
+0.8
+0.05 0.15 0.05   0.90 0.90 0.90   128
+
+// Bright yellow triangle on the back wall (mirror)
+TRIANGLE
+-2.0 7.9 3.0
+ 2.0 7.9 3.0
+ 0.0 7.9 5.5
+0.90 0.90 0.10   0.95 0.95 0.95   128
